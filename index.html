@@ -62,8 +62,6 @@ body {
 }
 
 #main-wrapper {
-  overflow-x: hidden;
-  overflow-y: visible;
   width: 100vw;
   display: flex;
   align-items: center;
@@ -208,7 +206,7 @@ body {
             </div>
             <div style="height: 100px;">
             </div>
-            <div id="news-title" style="position: absolute; width: 30vw; background-color: rgba(184, 214, 240, 0.737); z-index: 1; min-width: 300px;">
+            <div id="news-title" style="position: absolute; width: 30vw; background-color: rgba(184, 214, 240, 0.737); z-index: 1; min-width: 250px;">
               <h1 style="margin: 10px; font-size: clamp(1rem, 5vw, 3rem);">Lorem ipsum</h1>
               <div id="title-text" style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 20px;">
                 <div>
@@ -288,7 +286,7 @@ body {
         const currentScrollPosition = window.pageYOffset + 200;
         bg.style.transform = "translateY(-"+currentScrollPosition*0.4+"px)"
 
-        document.querySelector("#main-wrapper").height = document.querySelector("#main").scrollHeight + 100 + "px"
+        document.querySelector("#main-wrapper").height = document.querySelector("#main").scrollHeight + "px"
       
         const newsRight = document.querySelector('#news-button-right')
         const newsLeft = document.querySelector('#news-button-left')
