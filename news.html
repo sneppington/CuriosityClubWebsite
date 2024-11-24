@@ -15,9 +15,8 @@
     </div>
     <div id="background"></div>
     <div id="main-wrapper">
-        <div id="main" style="width: 90vw;">
-            mrawwww
-        </div>
+        <iframe id="main" style="width: 90vw;">
+        </iframe>
     </div>
 
     <script>
@@ -54,7 +53,29 @@
             return urlParams.get(param);
         }
 
-        //document.querySelector("#header").textContent = getQueryParam("title")
+        function insertHTMLFileIntoElement(filePath, elementId) {
+            fetch(filePath)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Failed to fetch file: ${response.statusText}`);
+                    }
+                    return response.text();
+                })
+                .then(htmlContent => {
+                    // Find the target element by ID
+                    const element = document.getElementById(elementId);
+                    if (element) {
+                        element.innerHTML = htmlContent; // Insert the HTML content
+                    } else {
+                        console.error(`Element with ID "${elementId}" not found.`);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+        }
+
+        document.querySelector("#main").src = "./News/"+getQueryParam("title")+"/index.html"
 
         const bg = document.querySelector('#background')
       
